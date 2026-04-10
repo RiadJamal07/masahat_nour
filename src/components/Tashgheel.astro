@@ -1,0 +1,39 @@
+---
+import { site } from '~/content/site';
+---
+
+<section id="tashgheel" class="bg-cream py-24 sm:py-32">
+  <div class="container-page">
+    <div class="mb-14 max-w-2xl">
+      <p class="text-eyebrow mb-5">{site.tashgheel.eyebrow.en}</p>
+      <h2 class="text-h1 text-ink">{site.tashgheel.title.en}</h2>
+      <p class="text-lead mt-6">{site.tashgheel.body.en}</p>
+    </div>
+
+    <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        site.tashgheel.pillars.map((pillar, i) => {
+          const number = String(i + 1).padStart(2, '0');
+          return (
+            <li class="flex flex-col rounded-[var(--radius-card)] bg-cream-soft p-6 shadow-soft sm:p-8">
+              <span class="inline-flex h-9 w-fit items-center rounded-full bg-cream px-3 text-xs font-medium tracking-widest text-ink uppercase">
+                {number}
+              </span>
+              <h3 class="text-h3 mt-5 text-ink">{pillar.name.en}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+                {pillar.description.en}
+              </p>
+              <span
+                lang="ar"
+                dir="rtl"
+                class="font-arabic mt-4 text-xs text-ink-soft/60"
+              >
+                {pillar.name.ar}
+              </span>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</section>
