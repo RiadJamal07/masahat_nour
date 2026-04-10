@@ -81,6 +81,53 @@
   filter: invert(0.92) hue-rotate(180deg) brightness(0.95) contrast(0.92);
 }
 
+/* ─────────────────────────────────────────────────────────────
+   Service card accordion
+   Native <details>/<summary> gets us free a11y: screen readers
+   announce expand/collapse, keyboard toggles on Enter, no focus
+   trap, no Android back-button trickery. We just style it and
+   rotate a chevron on open.
+   ───────────────────────────────────────────────────────────── */
+.service-card {
+  align-self: start; /* open cards don't stretch the grid row */
+}
+
+.service-card__head::-webkit-details-marker {
+  display: none; /* Safari triangle */
+}
+
+.service-card__label-open {
+  display: none;
+}
+.service-card[open] .service-card__label-closed {
+  display: none;
+}
+.service-card[open] .service-card__label-open {
+  display: inline;
+}
+
+.service-card[open] .service-card__chevron {
+  transform: rotate(180deg);
+}
+
+/* Smooth expand/collapse on browsers that support it.
+   Everywhere else it snaps — which is the native <details> default
+   and perfectly usable, just less luxurious. */
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+
+  .service-card::details-content {
+    block-size: 0;
+    overflow-y: clip;
+    transition: block-size 350ms ease, content-visibility 350ms allow-discrete;
+  }
+
+  .service-card[open]::details-content {
+    block-size: auto;
+  }
+}
 
 /* ─────────────────────────────────────────────────────────────
    Base
