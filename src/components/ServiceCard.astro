@@ -12,6 +12,7 @@ const number = String(index + 1).padStart(2, '0');
 ---
 
 <details
+  id={`service-card-${index}`}
   class="service-card group relative flex flex-col overflow-hidden rounded-[var(--radius-card)] bg-cream-soft shadow-soft transition-shadow duration-500 open:shadow-md"
 >
   <summary
@@ -79,41 +80,43 @@ const number = String(index + 1).padStart(2, '0');
     </div>
   </summary>
 
-  <div class="service-card__body border-t border-ink/8 px-6 py-6">
-    <dl class="space-y-4">
-      {
-        service.tiers.map((tier) => (
-          <div class="flex items-baseline justify-between gap-4 border-b border-ink/5 pb-3 last:border-b-0 last:pb-0">
-            <div class="min-w-0 flex-1">
-              <dt class="text-sm font-medium text-ink">{tier.label.en}</dt>
-              {tier.note && (
-                <dd class="mt-1 text-xs leading-relaxed text-ink-soft/70">
-                  {tier.note.en}
-                </dd>
-              )}
-            </div>
-            <dd class="shrink-0 text-right">
-              <div class="font-display text-lg leading-none text-teal">
-                {tier.price}
+  <div class="service-card__body">
+    <div class="service-card__body-inner border-t border-ink/8 px-6 py-6">
+      <dl class="space-y-4">
+        {
+          service.tiers.map((tier) => (
+            <div class="flex items-baseline justify-between gap-4 border-b border-ink/5 pb-3 last:border-b-0 last:pb-0">
+              <div class="min-w-0 flex-1">
+                <dt class="text-sm font-medium text-ink">{tier.label.en}</dt>
+                {tier.note && (
+                  <dd class="mt-1 text-xs leading-relaxed text-ink-soft/70">
+                    {tier.note.en}
+                  </dd>
+                )}
               </div>
-              <div class="mt-1 text-[11px] text-ink-soft/60">{tier.unit.en}</div>
-            </dd>
-          </div>
-        ))
-      }
-    </dl>
+              <dd class="shrink-0 text-right">
+                <div class="font-display text-lg leading-none text-teal">
+                  {tier.price}
+                </div>
+                <div class="mt-1 text-[11px] text-ink-soft/60">{tier.unit.en}</div>
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
 
-    {
-      service.amenities.length > 0 && (
-        <ul class="mt-6 flex flex-wrap gap-2">
-          {service.amenities.map((item) => (
-            <li class="inline-flex items-center gap-1.5 rounded-full border border-ink/8 bg-cream px-3 py-1.5 text-xs text-ink-soft">
-              <span class="h-1 w-1 rounded-full bg-yellow" aria-hidden="true" />
-              {item.en}
-            </li>
-          ))}
-        </ul>
-      )
-    }
+      {
+        service.amenities.length > 0 && (
+          <ul class="mt-6 flex flex-wrap gap-2">
+            {service.amenities.map((item) => (
+              <li class="inline-flex items-center gap-1.5 rounded-full border border-ink/8 bg-cream px-3 py-1.5 text-xs text-ink-soft">
+                <span class="h-1 w-1 rounded-full bg-yellow" aria-hidden="true" />
+                {item.en}
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
   </div>
 </details>

@@ -21,3 +21,124 @@ import ServiceCard from './ServiceCard.astro';
     </div>
   </div>
 </section>
+
+<script>
+  // Animated <details> disclosure for .service-card.
+  // We intercept the summary click so we can animate max-height on the body.
+  // Native <details> snaps; the interpolate-size CSS trick doesn't cover
+  // the reverse animation reliably and the row-reflow needs JS anyway.
+  const cards = document.querySelectorAll<HTMLDetailsElement>('.service-card');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function getBody(card: HTMLDetailsElement): HTMLElement | null {
+    return card.querySelector<HTMLElement>(':scope > .service-card__body');
+  }
+  function getInner(body: HTMLElement): HTMLElement | null {
+    return body.querySelector<HTMLElement>(':scope > .service-card__body-inner');
+  }
+
+  // Track the pending transition handler per body so mid-animation clicks
+  // can cancel the stale listener before starting a new one.
+  const pending = new WeakMap<HTMLElement, (e: TransitionEvent) => void>();
+  function clearPending(body: HTMLElement) {
+    const prev = pending.get(body);
+    if (prev) {
+      body.removeEventListener('transitionend', prev);
+      pending.delete(body);
+    }
+  }
+
+  function openCard(card: HTMLDetailsElement) {
+    const body = getBody(card);
+    const inner = body ? getInner(body) : null;
+    if (!body || !inner) return;
+
+    clearPending(body);
+    card.setAttribute('open', '');
+
+    if (reduceMotion.matches) {
+      body.style.maxHeight = 'none';
+      return;
+    }
+
+    // Start from whatever the current height is (0 if closed, current px if
+    // mid-close-animation), then animate to the inner's natural scrollHeight.
+    const start = body.getBoundingClientRect().height;
+    body.style.maxHeight = `${start}px`;
+    void body.offsetHeight;
+    const target = inner.scrollHeight;
+    body.style.maxHeight = `${target}px`;
+
+    const onEnd = (e: TransitionEvent) => {
+      if (e.propertyName !== 'max-height') return;
+      body.style.maxHeight = 'none';
+      body.removeEventListener('transitionend', onEnd);
+      pending.delete(body);
+    };
+    pending.set(body, onEnd);
+    body.addEventListener('transitionend', onEnd);
+  }
+
+  function closeCard(card: HTMLDetailsElement) {
+    const body = getBody(card);
+    if (!body) return;
+
+    clearPending(body);
+
+    if (reduceMotion.matches) {
+      body.style.maxHeight = '';
+      card.removeAttribute('open');
+      return;
+    }
+
+    // Pin current pixel height (was 'none' while open, or a px mid-open),
+    // reflow, then animate to 0.
+    const current = body.getBoundingClientRect().height;
+    body.style.maxHeight = `${current}px`;
+    void body.offsetHeight;
+    body.style.maxHeight = '0px';
+
+    const onEnd = (e: TransitionEvent) => {
+      if (e.propertyName !== 'max-height') return;
+      card.removeAttribute('open');
+      body.style.maxHeight = '';
+      body.removeEventListener('transitionend', onEnd);
+      pending.delete(body);
+    };
+    pending.set(body, onEnd);
+    body.addEventListener('transitionend', onEnd);
+  }
+
+  cards.forEach((card) => {
+    const summary = card.querySelector<HTMLElement>(':scope > .service-card__head');
+    if (!summary) return;
+
+    summary.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (card.hasAttribute('open')) {
+        closeCard(card);
+      } else {
+        openCard(card);
+      }
+    });
+  });
+
+  // Re-measure any open card on resize (debounced) so max-height stays honest
+  // if the user leaves the card open while reflowing the viewport.
+  let resizeTimer: number | undefined;
+  window.addEventListener('resize', () => {
+    if (resizeTimer) window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(() => {
+      cards.forEach((card) => {
+        if (!card.hasAttribute('open')) return;
+        const body = getBody(card);
+        if (!body) return;
+        // If it's already 'none' it will auto-size; no action needed.
+        if (body.style.maxHeight && body.style.maxHeight !== 'none') {
+          const inner = getInner(body);
+          if (inner) body.style.maxHeight = `${inner.scrollHeight}px`;
+        }
+      });
+    }, 150);
+  });
+</script>
