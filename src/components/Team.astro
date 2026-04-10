@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets';
+import { site } from '~/content/site';
+---
+
+<section id="team" class="container-page py-24 sm:py-32">
+  <div class="mb-14 max-w-2xl">
+    <p class="text-eyebrow mb-5">The People</p>
+    <h2 class="text-h1 text-ink">The team that keeps the lights on.</h2>
+    <p class="text-lead mt-6">
+      Six people running operations, community, partnerships, and the tiny details
+      that make a place feel like home.
+    </p>
+  </div>
+
+  <ul class="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6 lg:gap-4">
+    {
+      site.team.map((member) => (
+        <li class="flex flex-col gap-3">
+          <div class="overflow-hidden rounded-[var(--radius-card)]">
+            <Image
+              src={member.image}
+              alt={member.name}
+              widths={[240, 360, 480]}
+              sizes="(min-width: 1024px) 16vw, (min-width: 640px) 30vw, 45vw"
+              quality={78}
+              class="aspect-[4/5] h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
+            />
+          </div>
+          <div>
+            <div class="text-sm font-medium text-ink">{member.name}</div>
+            <div class="mt-0.5 text-xs text-ink-soft/70">{member.role.en}</div>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>

@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+import { site } from '~/content/site';
+---
+
+<section id="about" class="container-page py-24 sm:py-32">
+  <div class="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
+    <div>
+      <p class="text-eyebrow mb-5">{site.about.eyebrow.en}</p>
+      <h2 class="text-h1 max-w-2xl text-ink">
+        {site.about.title.en}
+      </h2>
+      <p class="text-lead mt-8 max-w-xl">
+        {site.about.body.en}
+      </p>
+
+      <p
+        lang="ar"
+        dir="rtl"
+        class="mt-6 max-w-xl font-arabic text-base leading-loose text-ink-soft/80"
+      >
+        {site.about.body.ar}
+      </p>
+    </div>
+
+    <div class="relative">
+      <div class="overflow-hidden rounded-[var(--radius-card)] shadow-soft">
+        <Image
+          src={site.about.image}
+          alt="Inside Masahet Nour"
+          widths={[480, 720, 960, 1200]}
+          sizes="(min-width: 1024px) 40vw, (min-width: 640px) 70vw, 90vw"
+          quality={80}
+          class="aspect-[4/5] h-full w-full object-cover"
+        />
+      </div>
+      <div
+        class="absolute -bottom-6 -left-6 hidden h-24 w-24 rounded-full bg-yellow lg:block"
+        aria-hidden="true"
+      >
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+import { site } from '~/content/site';
+---
+
+<section id="story" class="relative overflow-hidden bg-teal-deep py-24 text-cream sm:py-32">
+  <!-- subtle yellow flare -->
+  <div
+    class="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-yellow/15 blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="container-page relative">
+    <div class="grid items-center gap-14 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+      <div class="order-2 lg:order-1">
+        <div class="overflow-hidden rounded-[var(--radius-card)]">
+          <Image
+            src={site.story.image}
+            alt="Tashghīl program — LASeR youth in action"
+            widths={[480, 720, 960, 1200]}
+            sizes="(min-width: 1024px) 45vw, 90vw"
+            quality={80}
+            class="aspect-[5/4] h-full w-full object-cover"
+          />
+        </div>
+      </div>
+
+      <div class="order-1 lg:order-2">
+        <p class="text-eyebrow mb-5 text-yellow">{site.story.eyebrow.en}</p>
+        <h2 class="text-h1 max-w-xl text-cream">
+          {site.story.title.en}
+        </h2>
+        <p class="mt-8 max-w-xl text-base leading-relaxed text-cream/80">
+          {site.story.body.en}
+        </p>
+
+        <div class="mt-10 grid grid-cols-3 gap-4 max-w-md border-t border-cream/15 pt-8">
+          <div>
+            <div class="font-display text-3xl text-yellow">2009</div>
+            <div class="mt-1 text-xs uppercase tracking-wider text-cream/60">
+              LASeR founded
+            </div>
+          </div>
+          <div>
+            <div class="font-display text-3xl text-yellow">15+</div>
+            <div class="mt-1 text-xs uppercase tracking-wider text-cream/60">
+              Years of impact
+            </div>
+          </div>
+          <div>
+            <div class="font-display text-3xl text-yellow">3 mo</div>
+            <div class="mt-1 text-xs uppercase tracking-wider text-cream/60">
+              Tashghīl program
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

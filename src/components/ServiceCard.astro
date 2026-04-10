@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+import type { Service } from '~/content/site';
+
+interface Props {
+  service: Service;
+  index: number;
+}
+
+const { service, index } = Astro.props;
+const number = String(index + 1).padStart(2, '0');
+---
+
+<article
+  class="group relative flex flex-col overflow-hidden rounded-[var(--radius-card)] bg-cream-soft shadow-soft transition-transform duration-500 hover:-translate-y-1"
+>
+  <div class="relative aspect-[4/3] overflow-hidden">
+    <Image
+      src={service.image}
+      alt={service.name.en}
+      widths={[400, 600, 800, 1000]}
+      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+      quality={78}
+      class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+    />
+    <span
+      class="absolute left-4 top-4 inline-flex h-9 items-center rounded-full bg-cream/90 px-3 text-xs font-medium tracking-widest text-ink uppercase backdrop-blur"
+    >
+      {number}
+    </span>
+  </div>
+
+  <div class="flex flex-1 flex-col gap-4 p-6">
+    <div class="flex items-start justify-between gap-4">
+      <h3 class="text-h3 text-ink">{service.name.en}</h3>
+      <div class="text-right">
+        <div class="font-display text-2xl text-teal">{service.price}</div>
+        <div class="text-xs text-ink-soft/70">{service.priceUnit.en}</div>
+      </div>
+    </div>
+
+    <p class="text-sm leading-relaxed text-ink-soft">{service.tagline.en}</p>
+
+    <p
+      lang="ar"
+      dir="rtl"
+      class="font-arabic text-sm text-ink-soft/70"
+    >
+      {service.name.ar}
+    </p>
+  </div>
+</article>

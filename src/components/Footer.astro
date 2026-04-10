@@ -1,0 +1,90 @@
+---
+import { Image } from 'astro:assets';
+import wordmark from '~/assets/logo/wordmark.svg';
+import { site } from '~/content/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-ink text-cream/90">
+  <div class="container-page py-16 sm:py-20">
+    <div class="grid gap-12 lg:grid-cols-[1.5fr_1fr_1fr] lg:gap-16">
+      <div>
+        <Image src={wordmark} alt={site.name.en} class="h-12 w-auto" />
+        <p class="mt-6 max-w-sm text-sm leading-relaxed text-cream/60">
+          {site.shortDescription.en}
+        </p>
+      </div>
+
+      <div>
+        <div class="text-eyebrow mb-4 text-yellow">Explore</div>
+        <ul class="flex flex-col gap-3 text-sm">
+          {
+            site.nav.map((item) => (
+              <li>
+                <a href={item.href} class="text-cream/70 transition-colors hover:text-cream">
+                  {item.label.en}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <div class="text-eyebrow mb-4 text-yellow">Connect</div>
+        <ul class="flex flex-col gap-3 text-sm">
+          <li>
+            <a
+              href={site.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-cream/70 transition-colors hover:text-cream"
+            >
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a
+              href={site.social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-cream/70 transition-colors hover:text-cream"
+            >
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a
+              href={site.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-cream/70 transition-colors hover:text-cream"
+            >
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a
+              href={site.contact.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-cream/70 transition-colors hover:text-cream"
+            >
+              WhatsApp
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="mt-16 flex flex-col gap-4 border-t border-cream/10 pt-8 text-xs text-cream/40 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>© {year} {site.name.en} · {site.contact.location.en}</p>
+      <p lang="ar" dir="rtl" class="font-arabic">
+        {site.name.ar} — {site.tagline.ar}
+      </p>
+    </div>
+  </div>
+</footer>

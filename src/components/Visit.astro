@@ -1,0 +1,66 @@
+---
+import { site } from '~/content/site';
+---
+
+<section id="visit" class="bg-cream-soft py-24 sm:py-32">
+  <div class="container-page">
+    <div class="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+      <div>
+        <p class="text-eyebrow mb-5">Come See Us</p>
+        <h2 class="text-h1 max-w-md text-ink">
+          The door is open. <span class="italic text-teal">Always.</span>
+        </h2>
+        <p class="text-lead mt-6 max-w-md">
+          24/7 access for members. Walk-ins welcome any day of the week.
+          The kettle is on, the wifi is fast.
+        </p>
+
+        <p
+          lang="ar"
+          dir="rtl"
+          class="mt-6 max-w-md font-arabic text-base text-ink-soft/80"
+        >
+          {site.shortDescription.ar}
+        </p>
+      </div>
+
+      <dl class="grid gap-8 self-start sm:grid-cols-2 lg:grid-cols-1 lg:gap-10">
+        <div class="border-t border-ink/10 pt-6">
+          <dt class="text-eyebrow">Location</dt>
+          <dd class="mt-2 text-h3 text-ink">{site.contact.location.en}</dd>
+        </div>
+
+        <div class="border-t border-ink/10 pt-6">
+          <dt class="text-eyebrow">Phone</dt>
+          <dd class="mt-2">
+            <a
+              href={site.contact.phoneHref}
+              class="text-h3 text-ink transition-colors hover:text-teal"
+            >
+              {site.contact.phone}
+            </a>
+          </dd>
+        </div>
+
+        <div class="border-t border-ink/10 pt-6">
+          <dt class="text-eyebrow">WhatsApp</dt>
+          <dd class="mt-2">
+            <a
+              href={site.contact.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-h3 text-ink transition-colors hover:text-teal"
+            >
+              {site.contact.whatsapp}
+            </a>
+          </dd>
+        </div>
+
+        <div class="border-t border-ink/10 pt-6">
+          <dt class="text-eyebrow">Hours</dt>
+          <dd class="mt-2 text-h3 text-ink">24 / 7</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>

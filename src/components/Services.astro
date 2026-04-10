@@ -1,0 +1,23 @@
+---
+import { site } from '~/content/site';
+import ServiceCard from './ServiceCard.astro';
+---
+
+<section id="spaces" class="bg-cream-soft py-24 sm:py-32">
+  <div class="container-page">
+    <div class="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+      <div class="max-w-2xl">
+        <p class="text-eyebrow mb-5">Six Spaces, One Community</p>
+        <h2 class="text-h1 text-ink">Spaces shaped around the way you actually work.</h2>
+      </div>
+      <p class="text-lead max-w-md text-ink-soft">
+        From a quiet desk for the day to a private office for your team — pick the room
+        that fits, the rest comes with the membership.
+      </p>
+    </div>
+
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {site.services.map((service, i) => <ServiceCard service={service} index={i} />)}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,124 @@
+---
+import { Image } from 'astro:assets';
+import { site } from '~/content/site';
+---
+
+<section
+  id="top"
+  class="relative isolate flex min-h-svh flex-col justify-end overflow-hidden pb-12 pt-32 sm:pb-16 sm:pt-40"
+>
+  <Image
+    src={site.hero.image}
+    alt=""
+    widths={[640, 960, 1280, 1920, 2560]}
+    sizes="100vw"
+    quality={80}
+    loading="eager"
+    fetchpriority="high"
+    class="absolute inset-0 -z-10 h-full w-full object-cover"
+  />
+
+  <!-- Cream wash for legibility, gentle vignette at the top -->
+  <div
+    class="absolute inset-0 -z-10 bg-gradient-to-t from-cream via-cream/60 to-cream/10"
+    aria-hidden="true"
+  ></div>
+  <div
+    class="absolute inset-x-0 top-0 -z-10 h-40 bg-gradient-to-b from-ink/30 to-transparent"
+    aria-hidden="true"
+  ></div>
+
+  <div class="container-page">
+    <p class="text-eyebrow mb-5 text-teal-deep">
+      {site.hero.eyebrow.en}
+    </p>
+
+    <h1 class="text-display text-ink">
+      <span class="block">A place</span>
+      <span class="block">
+        with a <span class="italic text-teal">soul</span>.
+      </span>
+    </h1>
+
+    <p
+      lang="ar"
+      dir="rtl"
+      class="mt-6 max-w-xl font-arabic text-2xl text-ink-soft sm:text-3xl"
+    >
+      {site.tagline.ar}
+    </p>
+
+    <div class="mt-10 grid gap-8 md:grid-cols-[2fr_1fr] md:items-end md:gap-16">
+      <p class="text-lead max-w-xl text-ink-soft">
+        {site.hero.description.en}
+      </p>
+
+      <a
+        href={site.contact.whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group inline-flex items-center justify-between gap-4 rounded-full bg-ink px-6 py-4 text-cream transition-all hover:bg-teal-deep md:justify-self-end"
+      >
+        <span class="text-base font-medium">Reserve your spot</span>
+        <span
+          class="flex h-9 w-9 items-center justify-center rounded-full bg-yellow text-ink transition-transform group-hover:rotate-45"
+        >
+          <svg viewBox="0 0 16 16" fill="none" class="h-4 w-4" aria-hidden="true">
+            <path
+              d="M5 11L11 5M11 5H6M11 5V10"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Marquee strip at the very bottom of the hero -->
+  <div
+    class="absolute inset-x-0 bottom-0 overflow-hidden border-t border-ink/10 bg-cream/95 py-4 backdrop-blur-sm"
+    aria-hidden="true"
+  >
+    <div class="flex animate-marquee whitespace-nowrap">
+      {
+        Array.from({ length: 6 }).map(() => (
+          <div class="flex shrink-0 items-center gap-8 px-8 text-sm tracking-widest text-ink-soft uppercase">
+            <span>24/7 Coworking</span>
+            <span class="text-yellow">●</span>
+            <span lang="ar" dir="rtl" class="font-arabic">
+              مساحة نور
+            </span>
+            <span class="text-yellow">●</span>
+            <span>Tripoli · Lebanon</span>
+            <span class="text-yellow">●</span>
+            <span>Community · Focus · Light</span>
+            <span class="text-yellow">●</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 60s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+      animation: none;
+    }
+  }
+</style>

@@ -1,0 +1,56 @@
+---
+import { Image } from 'astro:assets';
+import wordmark from '~/assets/logo/wordmark.svg';
+import mark from '~/assets/logo/mark.svg';
+import { site } from '~/content/site';
+---
+
+<header class="fixed inset-x-0 top-0 z-40">
+  <div
+    class="container-page mt-3 flex items-center justify-between rounded-full border border-ink/5 bg-cream/80 px-4 py-2.5 shadow-soft backdrop-blur-md sm:mt-5 sm:px-6"
+  >
+    <a href="#top" class="flex items-center gap-2.5" aria-label={site.name.en}>
+      <Image src={mark} alt="" class="h-9 w-9" loading="eager" />
+      <Image src={wordmark} alt={site.name.en} class="hidden h-7 w-auto sm:block" loading="eager" />
+    </a>
+
+    <nav class="hidden md:block" aria-label="Primary">
+      <ul class="flex items-center gap-7 text-sm text-ink-soft">
+        {
+          site.nav.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="relative transition-colors hover:text-ink focus-visible:text-ink"
+              >
+                {item.label.en}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <a
+      href={site.contact.whatsappHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="group inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-medium text-cream transition-all hover:bg-teal-deep focus-visible:bg-teal-deep sm:px-5"
+    >
+      <span>Reserve</span>
+      <svg
+        class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
+        viewBox="0 0 16 16"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M3 8h10m0 0L8 3m5 5l-5 5"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </a>
+  </div>
+</header>
