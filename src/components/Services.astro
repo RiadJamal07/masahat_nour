@@ -16,7 +16,7 @@ import ServiceCard from './ServiceCard.astro';
       </p>
     </div>
 
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="columns-1 gap-6 sm:columns-2 lg:columns-3">
       {site.services.map((service, i) => <ServiceCard service={service} index={i} />)}
     </div>
   </div>
@@ -85,9 +85,15 @@ import ServiceCard from './ServiceCard.astro';
 
     clearPending(body);
 
+    // Flip the open attribute immediately so the chevron, label swap, and any
+    // other [open]-gated CSS respond to the click without waiting 380ms. The
+    // height animation proceeds on the inline max-height override. This also
+    // makes rapid re-clicks (e.g. triple-click) consistent: the next click
+    // reads the attribute as already closed and correctly routes to openCard.
+    card.removeAttribute('open');
+
     if (reduceMotion.matches) {
       body.style.maxHeight = '';
-      card.removeAttribute('open');
       return;
     }
 
@@ -100,7 +106,6 @@ import ServiceCard from './ServiceCard.astro';
 
     const onEnd = (e: TransitionEvent) => {
       if (e.propertyName !== 'max-height') return;
-      card.removeAttribute('open');
       body.style.maxHeight = '';
       body.removeEventListener('transitionend', onEnd);
       pending.delete(body);
