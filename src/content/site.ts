@@ -100,8 +100,8 @@ export const site = {
       ar: 'نحن شغوفون بمساعدتك على النمو وإحداث الأثر.',
     } satisfies Bilingual,
     body: {
-      en: 'Named after Nour al-Din al-Zinki — the historical leader who founded the Nouri School to spread learning and knowledge — Masahet Nour is more than a coworking space. It is a community tool, designed to link local and international companies with the talented young people of Tripoli, and to give every member a place that supports both their professional and social lives.',
-      ar: 'سميت باسم نور الدين الزنكي — القائد التاريخي الذي أسس المدرسة النورية لنشر العلم والمعرفة — ومساحة نور هي أكثر من مجرد مساحة عمل مشتركة. إنها أداة مجتمعية مصممة لربط الشركات المحلية والدولية بشباب طرابلس الموهوبين، ولمنح كل عضو مكانًا يدعم حياته المهنية والاجتماعية.',
+      en: "Named after Nour al-Din al-Zinki — the historical leader who founded the Nouri School to spread learning and knowledge — Masahet Nour (which translates to 'Space of Light') is more than a coworking space. It is a community tool, designed to link local and international companies with the talented young people of Tripoli, and to give every member a place that supports both their professional and social lives.",
+      ar: 'سميت باسم نور الدين الزنكي — القائد التاريخي الذي أسس المدرسة النورية لنشر العلم والمعرفة — ومساحة نور (التي تعني حرفيًا «مكان النور») هي أكثر من مجرد مساحة عمل مشتركة. إنها أداة مجتمعية مصممة لربط الشركات المحلية والدولية بشباب طرابلس الموهوبين، ولمنح كل عضو مكانًا يدعم حياته المهنية والاجتماعية.',
     } satisfies Bilingual,
     image: storyImage,
   },
