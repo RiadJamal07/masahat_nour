@@ -23,3 +23,7 @@ yarn-error.log*
 
 # scrape artifacts (kept locally only)
 raw_html/
+
+# local browser-capture screenshots
+/*.png
+.playwright-mcp/

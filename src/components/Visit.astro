@@ -1,10 +1,16 @@
 ---
 import { site } from '~/content/site';
+
+const mapEmbed =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3290.6484337623237!2d35.831497752807266!3d34.43568422803229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1521f71cee0c46a5%3A0x5f9f92e90a67b674!2zTWFzYWhldCBOb3VyIC0g2YXYs9in2K3YqSDZhtmI2LE!5e0!3m2!1sen!2slb!4v1775827894009!5m2!1sen!2slb';
+
+const mapLink =
+  'https://www.google.com/maps/place/Masahet+Nour/@34.4356842,35.8314978,17z';
 ---
 
 <section id="visit" class="bg-cream-soft py-24 sm:py-32">
   <div class="container-page">
-    <div class="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+    <div class="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-start lg:gap-20">
       <div>
         <p class="text-eyebrow mb-5">Come See Us</p>
         <h2 class="text-h1 max-w-md text-ink">
@@ -24,10 +30,15 @@ import { site } from '~/content/site';
         </p>
       </div>
 
-      <dl class="grid gap-8 self-start sm:grid-cols-2 lg:grid-cols-1 lg:gap-10">
+      <dl class="grid gap-8 self-start sm:grid-cols-2 lg:gap-10">
         <div class="border-t border-ink/10 pt-6">
           <dt class="text-eyebrow">Location</dt>
           <dd class="mt-2 text-h3 text-ink">{site.contact.location.en}</dd>
+        </div>
+
+        <div class="border-t border-ink/10 pt-6">
+          <dt class="text-eyebrow">Hours</dt>
+          <dd class="mt-2 text-h3 text-ink">24 / 7</dd>
         </div>
 
         <div class="border-t border-ink/10 pt-6">
@@ -55,12 +66,39 @@ import { site } from '~/content/site';
             </a>
           </dd>
         </div>
-
-        <div class="border-t border-ink/10 pt-6">
-          <dt class="text-eyebrow">Hours</dt>
-          <dd class="mt-2 text-h3 text-ink">24 / 7</dd>
-        </div>
       </dl>
+    </div>
+
+    <div class="mt-16">
+      <div
+        class="map-frame relative aspect-[16/10] overflow-hidden rounded-[var(--radius-card)] border border-ink/10 bg-cream shadow-soft sm:aspect-[16/8]"
+      >
+        <iframe
+          src={mapEmbed}
+          title="Masahet Nour on Google Maps"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+          class="absolute inset-0 h-full w-full border-0"></iframe>
+      </div>
+      <p class="mt-4 text-sm text-ink-soft/70">
+        <a
+          href={mapLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 underline-offset-4 hover:text-teal hover:underline"
+        >
+          Open in Google Maps
+          <svg viewBox="0 0 16 16" fill="none" class="h-3 w-3" aria-hidden="true">
+            <path
+              d="M3 8h10m0 0L8 3m5 5l-5 5"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </a>
+      </p>
     </div>
   </div>
 </section>

@@ -24,8 +24,23 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <meta name="theme-color" content="#f8f4ed" />
     <meta name="color-scheme" content="light" />
 
-    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL.replace(/\/?$/, '/')}favicon.svg`} />
     <link rel="canonical" href={canonical} />
+
+    {/* Anti-FOUC: apply persisted theme before first paint.
+        Default is light unless the user previously chose dark. */}
+    <script is:inline>
+      (function () {
+        var root = document.documentElement;
+        var stored = null;
+        try {
+          stored = localStorage.getItem('mn-theme');
+        } catch (_) {}
+        var theme = stored === 'dark' ? 'dark' : 'light';
+        if (theme === 'dark') root.dataset.theme = 'dark';
+        root.dataset.themeActive = theme;
+      })();
+    </script>
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -44,7 +59,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
   <body>
     <a
       href="#main"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-ink focus:px-4 focus:py-2 focus:text-cream"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-surface focus:px-4 focus:py-2 focus:text-on-surface"
     >
       Skip to content
     </a>

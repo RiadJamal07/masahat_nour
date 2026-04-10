@@ -9,18 +9,32 @@
 /* ─────────────────────────────────────────────────────────────
    Design tokens — single source of truth.
    Derived from the existing brand mark (teal + sun yellow).
+
+   The four "flipping" tokens — cream / cream-soft / ink / ink-soft —
+   are *semantic*: they swap values in dark mode.
+   The brand tokens (teal, yellow, etc.) are mode-independent.
+   The "surface" tokens are *always* dark, no matter the mode —
+   used for buttons, footer, and anything that must stay anchored.
    ───────────────────────────────────────────────────────────── */
 @theme {
-  /* Palette */
+  /* Flipping (light defaults — overridden in dark mode below) */
   --color-cream: #f8f4ed;
   --color-cream-soft: #fbf8f1;
   --color-ink: #161410;
   --color-ink-soft: #3a3631;
+
+  /* Brand — never changes */
   --color-teal: #3f8784;
   --color-teal-deep: #1f4543;
   --color-teal-soft: #c9dddb;
   --color-yellow: #ffdc4e;
   --color-yellow-soft: #fff1b5;
+
+  /* Always-dark surface (footer, primary buttons) */
+  --color-surface: #161410;
+  --color-surface-soft: #221e18;
+  --color-on-surface: #f5f1ea;
+  --color-on-surface-soft: #b9b1a3;
 
   /* Typography */
   --font-display: 'Fraunces Variable', ui-serif, Georgia, serif;
@@ -41,6 +55,33 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
+   Dark mode — opt-in via [data-theme="dark"] on <html>.
+   Light is the default for every visitor; the OS preference is
+   ignored unless the user explicitly clicks the toggle (which then
+   persists in localStorage as `mn-theme`).
+   ───────────────────────────────────────────────────────────── */
+:root[data-theme='dark'] {
+  --color-cream: #14110d;
+  --color-cream-soft: #1c1812;
+  --color-ink: #f5f1ea;
+  --color-ink-soft: #b9b1a3;
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.4),
+                 0 8px 24px -8px rgba(0, 0, 0, 0.5);
+}
+
+/* Subtle photo dimming in dark mode so images don't punch out */
+:root[data-theme='dark'] img:not([data-no-dim]) {
+  filter: brightness(0.88) saturate(0.95);
+}
+
+/* Google Maps iframe → tuned dark treatment.
+   No API key, no replacement provider — just an inversion that ends up
+   looking like a proper night-mode map. */
+:root[data-theme='dark'] .map-frame iframe {
+  filter: invert(0.92) hue-rotate(180deg) brightness(0.95) contrast(0.92);
+}
+
+/* ─────────────────────────────────────────────────────────────
    Base
    ───────────────────────────────────────────────────────────── */
 @layer base {
@@ -50,11 +91,17 @@
     text-rendering: optimizeLegibility;
   }
 
+  html,
+  body {
+    overflow-x: clip;
+  }
+
   body {
     background: var(--color-cream);
     color: var(--color-ink);
     font-family: var(--font-body);
     font-feature-settings: 'ss01', 'cv11';
+    transition: background-color 250ms ease, color 250ms ease;
   }
 
   ::selection {
