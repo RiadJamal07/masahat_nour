@@ -66,8 +66,8 @@ export const site = {
   name: { en: 'Masahet Nour', ar: 'مساحة نور' } satisfies Bilingual,
   tagline: { en: 'A Place with a Soul', ar: 'مكانٌ لهُ رُوح' } satisfies Bilingual,
   shortDescription: {
-    en: '24/7 coworking in the heart of Tripoli, Lebanon — where individuals, companies, and students come together to work, create, and grow.',
-    ar: 'مساحة عمل مشتركة على مدار الساعة في قلب طرابلس، لبنان — حيث يلتقي الأفراد والشركات والطلاب للعمل والإبداع والنمو.',
+    en: "Masahet Nour is a 24/7 coworking space in Tripoli, Lebanon. A vibrant hub where individuals, companies, and students come together to work, create, and grow. More than just a workspace, it's a supportive community built on collaboration, connection, and shared success.",
+    ar: 'مساحة نور مساحة عملٍ مشتركة تعمل على مدار الساعة في طرابلس، لبنان. مركزٌ نابضٌ يلتقي فيه الأفراد والشركات والطلاب ليعملوا ويُبدعوا وينمو. وهي أكثر من مجرد مكانٍ للعمل؛ إنها مجتمعٌ داعم قائمٌ على التعاون والتواصل والنجاح المشترك.',
   } satisfies Bilingual,
 
   contact: {
@@ -87,21 +87,25 @@ export const site = {
   hero: {
     eyebrow: { en: 'Tripoli · Lebanon', ar: 'طرابلس · لبنان' } satisfies Bilingual,
     description: {
-      en: 'A 24/7 coworking space built around community, focus, and the people of Tripoli. Quiet desks, fast internet, real coffee, and a story worth being part of.',
-      ar: 'مساحة عمل مشتركة على مدار الساعة، مبنية على المجتمع والتركيز وأهل طرابلس. مكاتب هادئة، إنترنت سريع، قهوة حقيقية، وقصة تستحق أن تكون جزءًا منها.',
+      en: 'A 24/7 coworking space in Tripoli, Lebanon. A vibrant hub where individuals, companies, and students come together to work, create, and grow — more than just a workspace, a supportive community built on collaboration, connection, and shared success.',
+      ar: 'مساحة عملٍ مشتركة تعمل على مدار الساعة في طرابلس، لبنان. مركزٌ نابضٌ يلتقي فيه الأفراد والشركات والطلاب ليعملوا ويُبدعوا وينمو — أكثر من مجرد مكانٍ للعمل، مجتمعٌ داعم قائمٌ على التعاون والتواصل والنجاح المشترك.',
     } satisfies Bilingual,
     image: hero,
   },
 
   about: {
-    eyebrow: { en: 'Why Masahet Nour', ar: 'لماذا مساحة نور' } satisfies Bilingual,
+    eyebrow: { en: 'About Masahet Nour', ar: 'عن مساحة نور' } satisfies Bilingual,
     title: {
       en: "We're passionate about helping you grow and make an impact.",
       ar: 'نحن شغوفون بمساعدتك على النمو وإحداث الأثر.',
     } satisfies Bilingual,
     body: {
-      en: "Named after Nour al-Din al-Zinki — the historical leader who founded the Nouri School to spread learning and knowledge — Masahet Nour (which translates to 'Space of Light') is more than a coworking space. It is a community tool, designed to link local and international companies with the talented young people of Tripoli, and to give every member a place that supports both their professional and social lives.",
-      ar: 'سميت باسم نور الدين الزنكي — القائد التاريخي الذي أسس المدرسة النورية لنشر العلم والمعرفة — ومساحة نور (التي تعني حرفيًا «مكان النور») هي أكثر من مجرد مساحة عمل مشتركة. إنها أداة مجتمعية مصممة لربط الشركات المحلية والدولية بشباب طرابلس الموهوبين، ولمنح كل عضو مكانًا يدعم حياته المهنية والاجتماعية.',
+      en: 'Masahet Nour — which translates to "Space of Light" — was named after the leader Nour al-Din al-Zinki, who supported many leaders throughout history and enforced values wherever he traveled with his skills and knowledge. He was a light illuminating the path for all who desired to work and strive for the advancement of their society. Nour al-Din al-Zinki believed in the big role that education plays in building upcoming generations, and founded the Nouri School to spread the light of knowledge and Islamic values in his society. Masahet Nour is a social and co-working workspace aimed at creating a conducive environment for its users to meet their professional and social needs.',
+      ar: 'مساحة نور — التي تعني حرفيًا «مكان النور» — سُمّيت تيمّنًا بالقائد نور الدين الزنكي، الذي ساند كثيرًا من القادة عبر التاريخ وأرسى القيم أينما حلّ بعلمه ومعرفته. كان نورًا يضيء الطريق لكل من رغب في العمل والسعي لنهضة مجتمعه. آمن نور الدين الزنكي بالدور الكبير للتعليم في بناء الأجيال القادمة، فأسس المدرسة النورية لنشر نور العلم والقيم الإسلامية في مجتمعه. ومساحة نور هي مكانٌ اجتماعي ومساحة عمل مشتركة، هدفها أن توفّر بيئةً ملائمة لمستخدميها يلبّون فيها احتياجاتهم المهنية والاجتماعية.',
+    } satisfies Bilingual,
+    community: {
+      en: "At Masahet Nour we're not just creating a space; we're building a community tool, meant to link local and international companies with the awesome young talents in Tripoli, boosting their chances of landing exciting new opportunities.",
+      ar: 'في مساحة نور لا نبني مجرد مكانٍ للعمل؛ بل نبني أداةً مجتمعية تهدف إلى ربط الشركات المحلية والدولية بالمواهب الشابة الرائعة في طرابلس، وتعزيز فرصهم في الظفر بفرصٍ جديدة ومثيرة.',
     } satisfies Bilingual,
     image: storyImage,
   },
@@ -152,7 +156,7 @@ export const site = {
         { en: 'Prayer room', ar: 'غرفة صلاة' },
         { en: '24/7 electricity', ar: 'كهرباء على مدار الساعة' },
         { en: 'High-speed wifi', ar: 'إنترنت عالي السرعة' },
-        { en: 'NewTown coffee', ar: 'قهوة نيوتاون' },
+        { en: 'Coffee by NewTown', ar: 'قهوة بالتعاون مع نيوتاون' },
         { en: 'Shared kitchen', ar: 'مطبخ مشترك' },
         { en: 'Library & lounge', ar: 'مكتبة وصالة' },
         { en: 'Community events', ar: 'فعاليات المجتمع' },
@@ -329,12 +333,12 @@ export const site = {
   story: {
     eyebrow: { en: 'Our Story', ar: 'قصتنا' } satisfies Bilingual,
     title: {
-      en: 'A space of light, born from fifteen years of believing in young people.',
-      ar: 'مساحة من النور، وُلدت من خمسة عشر عامًا من الإيمان بالشباب.',
+      en: 'Tripoli needs a space of light.',
+      ar: 'طرابلس بحاجة إلى مساحةٍ من النور.',
     } satisfies Bilingual,
     body: {
-      en: "Masahet Nour grew out of LASeR — the Lebanese Association for Scientific Research, founded in 2009 by 40 university professors who refused to let any dream die for lack of funding. From scholarships and student loans to Tashghīl, our 3-month technical training and paid internship program, we've spent fifteen years equipping the youth of Tripoli with the skills, mentorship, and opportunity to shine. Masahet Nour is the room where it all happens.",
-      ar: 'وُلدت مساحة نور من رحم لازر — الجمعية اللبنانية للأبحاث العلمية، التي أسسها عام ٢٠٠٩ أربعون أستاذًا جامعيًا رفضوا أن يموت أي حلم بسبب نقص التمويل. من المنح الدراسية والقروض الطلابية إلى تشغيل، برنامجنا التدريبي التقني والعملي على ٣ أشهر، أمضينا خمسة عشر عامًا في تجهيز شباب طرابلس بالمهارات والتوجيه والفرصة ليتألقوا. مساحة نور هي الغرفة التي يحدث فيها كل ذلك.',
+      en: 'Masahet Nour was not a spontaneous idea. It is the accumulation of 15 years of experience and research working with youth in Tripoli and the North. Since the launch of LASeR in 2009, our goals evolved from supporting Masters and PhD students to offering university and school scholarships, to youth empowerment programs that help young and upcoming people enhance their skills, grow their personalities, and unlock their full potential. In the last couple of years, LASeR embarked on a new mission and launched Tashghīl, offering three months of technical training, soft-skills training, and career coaching to bridge the gap between the skills of fresh graduates and the needs of the job market. All these programs, scholarships, and experiences led us to one conclusion: Tripoli needs a space of light, where our youth can learn, work, connect, and shine brighter than ever — and this is why Masahet Nour, which translates to "Space of Light" in English, was created.',
+      ar: 'مساحة نور لم تكن فكرةً عفوية؛ بل هي حصيلة خمسة عشر عامًا من التجربة والبحث في العمل مع شباب طرابلس والشمال. منذ انطلاق لازر عام ٢٠٠٩، تطوّرت أهدافنا من دعم طلاب الماجستير والدكتوراه، إلى تقديم المنح الجامعية والمدرسية، إلى برامج لتمكين الشباب تساعدهم على شحذ مهاراتهم وبناء شخصياتهم واكتشاف كامل طاقاتهم. وفي السنوات الأخيرة، دخلت لازر ميدانًا جديدًا فأطلقت «تشغيل»، الذي يقدّم ثلاثة أشهر من التدريب التقني وتدريب المهارات الشخصية والتوجيه المهني، بهدف ردم الهوّة بين مهارات الخريجين الجدد واحتياجات سوق العمل. كل هذه البرامج والمنح والتجارب قادتنا إلى نتيجةٍ واحدة: طرابلس بحاجة إلى مساحةٍ من النور يتعلّم فيها شبابنا ويعملون ويتواصلون ويتألقون أكثر من أي وقتٍ مضى — ولهذا وُلدت مساحة نور.',
     } satisfies Bilingual,
     image: tashgheel,
   },
@@ -411,16 +415,16 @@ export const site = {
       ar: 'الجمعية اللبنانية للأبحاث العلمية',
     } satisfies Bilingual,
     body: {
-      en: 'LASeR is a non-profit organisation founded in Tripoli, Lebanon in 2009 by 40 university professors who believed in reforming the education sector and giving more students access to university. Today, LASeR offers scholarships, interest-free educational loans, institutional support for universities and schools, and hands-on trainings that link young people to the job market.',
-      ar: 'لازر منظمةٌ غير ربحية، تأسست في طرابلس، لبنان عام ٢٠٠٩ على يد أربعين أستاذًا جامعيًا آمنوا بإصلاح قطاع التعليم وإتاحة الجامعة لعددٍ أكبر من الطلاب. تقدّم لازر اليوم منحًا دراسية، وقروضًا تعليمية بلا فوائد، ودعمًا مؤسسيًا للجامعات والمدارس، وتدريبات تطبيقية تصل الشباب بسوق العمل.',
+      en: 'The Lebanese Association for Scientific Research (LASeR) is a non-profit organization founded in Tripoli, Lebanon in 2009 by 40 university professors who believed in the reform of the education sector and giving more students access to university education. LASeR offers scholarships, interest-free educational loans, institutional support for universities and schools, and creates linkages to the job market through a variety of hands-on trainings and workshops.',
+      ar: 'الجمعية اللبنانية للأبحاث العلمية (لازر) منظمةٌ غير ربحية تأسست في طرابلس، لبنان عام ٢٠٠٩ على يد أربعين أستاذًا جامعيًا آمنوا بإصلاح قطاع التعليم وإتاحة التعليم الجامعي لعددٍ أكبر من الطلاب. تقدّم لازر منحًا دراسية، وقروضًا تعليمية بلا فوائد، ودعمًا مؤسسيًا للجامعات والمدارس، وتبني جسورًا مع سوق العمل من خلال تدريباتٍ وورش عملٍ تطبيقية متنوعة.',
     } satisfies Bilingual,
     goalsTitle: { en: 'Our Goals', ar: 'أهدافنا' } satisfies Bilingual,
     goalsBody: {
-      en: "We believe no dream should perish for lack of funding. Education is the tool that builds societies, changes lives, and moves countries forward — and we've been there. That's why we work to give young people the power to keep pace with a world that never stops changing.",
-      ar: 'نؤمن بأنه لا ينبغي لأي حلمٍ أن يذوي بسبب نقص التمويل. التعليم هو الأداة التي تبني المجتمعات وتغيّر الحياة وتدفع الدول إلى الأمام — وقد عشنا ذلك بأنفسنا. لذلك نعمل على تمكين الشباب من مواكبة عالمٍ لا يتوقف عن التغيّر.',
+      en: "We believe that no dream should perish because of a lack of funding! Education is the tool that develops society, develops countries, and changes the lives of people forever. We've all been there, and we know it. That's why we are doing our best to support education, in order to provide the youth with the power to align with the accelerated changes the world is going through.",
+      ar: 'نؤمن بأنه لا ينبغي لأي حلمٍ أن يذوي بسبب نقص التمويل! التعليم هو الأداة التي تنهض بالمجتمع، وتنهض بالدول، وتغيّر حياة الناس إلى الأبد. جميعنا مررنا بذلك، ونعرفه جيدًا. لهذا نبذل قصارى جهدنا لدعم التعليم، لنمنح الشباب القوة اللازمة لمواكبة التغيّرات المتسارعة التي يشهدها العالم.',
     } satisfies Bilingual,
     pullQuote: {
-      en: 'No dream should perish for lack of funding.',
+      en: 'No dream should perish because of a lack of funding.',
       ar: 'لا ينبغي لأي حلمٍ أن يذوي بسبب نقص التمويل.',
     } satisfies Bilingual,
     stats: [
@@ -431,56 +435,56 @@ export const site = {
   },
 
   tashgheel: {
-    eyebrow: { en: 'Tashghīl', ar: 'تشغيل' } satisfies Bilingual,
+    eyebrow: { en: 'About Tashghīl', ar: 'عن تشغيل' } satisfies Bilingual,
     title: {
-      en: 'Bridging the gap between fresh graduates and the job market.',
-      ar: 'نردم الهوّة بين الخريجين الجدد وسوق العمل.',
+      en: 'Bridging the gap between the skills of fresh graduates and the needs of the job market.',
+      ar: 'ردم الهوّة بين مهارات الخريجين الجدد واحتياجات سوق العمل.',
     } satisfies Bilingual,
     body: {
-      en: 'Tashghīl equips selected candidates with technical and digital business skills, then places them in a 3-month mentored internship — paid in fresh USD — to turn training into real working experience.',
-      ar: 'يزوّد تشغيل مرشّحين مختارين بالمهارات التقنية ومهارات الأعمال الرقمية، ثم يدفعهم إلى تدريبٍ مهنيّ لثلاثة أشهر تحت إشراف مرشد، براتبٍ بالدولار الطازج، لتتحوّل المهارات إلى خبرةٍ عملية حقيقية.',
+      en: 'Tashghīl aims to provide selected candidates with technical and digital business skills to prepare them for employment in different fields. After the training — both soft and hard skills — trainees do a 3-month corporate or project internship under the supervision of a mentor appointed by LASeR, who follows up on them and helps them achieve the goals of the internship.',
+      ar: 'يهدف «تشغيل» إلى تزويد مرشّحين مختارين بالمهارات التقنية ومهارات الأعمال الرقمية لإعدادهم لسوق العمل في مجالاتٍ متعددة. بعد التدريب — على المهارات الشخصية والتقنية معًا — يخوض المتدرّبون تدريبًا مهنيًا لثلاثة أشهر داخل شركةٍ أو على مشروع، تحت إشراف مرشدٍ تعيّنه لازر ليتابعهم ويساعدهم على تحقيق أهداف التدريب.',
     } satisfies Bilingual,
     pillars: [
       {
         name: { en: 'Soft Skills Training', ar: 'تدريب المهارات الشخصية' },
         description: {
-          en: 'Career readiness (personality tests, CV, interviews), business skills like communication and teamwork, and human interaction — problem-solving and time management.',
-          ar: 'الجاهزية المهنية من اختبارات شخصية وكتابة السيرة والمقابلات، ومهارات الأعمال كالتواصل والعمل الجماعي، ومهارات التعامل الإنساني كحلّ المشكلات وإدارة الوقت.',
+          en: 'Career readiness: personality test, build your CV, interviews. Business skills: communication, teamwork. Human interaction: problem-solving, time management.',
+          ar: 'الجاهزية المهنية: اختبار الشخصية، كتابة السيرة الذاتية، المقابلات. مهارات الأعمال: التواصل والعمل الجماعي. التعامل الإنساني: حلّ المشكلات وإدارة الوقت.',
         },
       },
       {
         name: { en: 'Technical Skills Training', ar: 'تدريب المهارات التقنية' },
         description: {
-          en: 'Three months of hands-on technical training in one of the domains the programme covers.',
-          ar: 'ثلاثة أشهر من التدريب التقني التطبيقي في أحد المجالات التي يغطّيها البرنامج.',
+          en: '3 months of technical skills training in one of the domains that the program covers.',
+          ar: 'ثلاثة أشهر من التدريب التقني في أحد المجالات التي يغطّيها البرنامج.',
         },
       },
       {
         name: { en: 'Career Coaching', ar: 'التوجيه المهني' },
         description: {
-          en: 'Trainees receive coaching throughout the programme to sharpen their skills, knowledge, and performance — ensuring they leave ready for a real career.',
-          ar: 'يتلقّى المتدرّبون توجيهًا طوال البرنامج لشحذ مهاراتهم ومعرفتهم وأدائهم، فيخرجون جاهزين لمسيرةٍ مهنية حقيقية.',
+          en: 'Trainees receive coaching to improve their skills, knowledge, and performance during the program. This phase ensures their readiness for a successful career.',
+          ar: 'يتلقّى المتدرّبون توجيهًا لتطوير مهاراتهم ومعرفتهم وأدائهم خلال البرنامج. تضمن هذه المرحلة جاهزيتهم لمسيرةٍ مهنية ناجحة.',
         },
       },
       {
         name: { en: 'Mentorship', ar: 'الإرشاد' },
         description: {
-          en: 'Each student gets a personalised internship journey designed around their major and profile, with mentor support and regular performance follow-up.',
-          ar: 'لكل طالب رحلة تدريب خاصة مصمَّمة حول اختصاصه وملفّه، مع دعمٍ من مرشدٍ ومتابعةٍ منتظمة للأداء.',
+          en: 'Students have a personalized internship journey designed specifically for their majors and profiles. They receive support from mentors and regular follow-up on their performance, allowing them to identify areas where they can improve and grow.',
+          ar: 'يحصل الطلاب على رحلة تدريبٍ شخصية مصمَّمة خصيصًا لاختصاصاتهم وملفّاتهم. يتلقّون دعمًا من المرشدين ومتابعةً منتظمة لأدائهم، ما يتيح لهم اكتشاف مواطن التحسّن والنمو.',
         },
       },
       {
-        name: { en: 'Paid Internships', ar: 'تدريبٌ مدفوع الأجر' },
+        name: { en: 'Internships', ar: 'التدريب المهني' },
         description: {
-          en: 'A 3-month corporate or project internship under a LASeR-appointed mentor. Interns receive a monthly stipend in fresh USD, plus any logistics they need — electricity, internet, and laptops.',
-          ar: 'تدريبٌ مهنيٌّ لثلاثة أشهر داخل شركة أو على مشروع، تحت إشراف مرشدٍ تعيّنه لازر. يحصل المتدرّب على راتبٍ شهريّ بالدولار الطازج، ويُؤمَّن له كل ما يلزم من كهرباء وإنترنت وأجهزة.',
+          en: 'Talented trainees do a 3-month corporate or project internship under the supervision of a mentor appointed by LASeR, gaining experience in real-case scenarios. During the internship, they receive a small income source paid in fresh dollars, and LASeR provides the logistics and IT infrastructure — electricity, internet connection, laptops — needed for the internships when required.',
+          ar: 'يخوض المتدرّبون الموهوبون تدريبًا مهنيًا لثلاثة أشهر داخل شركةٍ أو على مشروع، تحت إشراف مرشدٍ تعيّنه لازر، فيكتسبون خبرةً في سيناريوهاتٍ واقعية. يحصلون خلال التدريب على مصدر دخلٍ صغير يُدفع بالدولار الطازج، وتوفّر لهم لازر ما يلزم من كهرباء واتصالٍ بالإنترنت وأجهزة حاسوب عند الحاجة.',
         },
       },
       {
         name: { en: 'Volunteering', ar: 'العمل التطوّعي' },
         description: {
-          en: 'The programme helps students identify suitable volunteering opportunities and connects them with the right organisations.',
-          ar: 'يساعد البرنامج الطلاب على اكتشاف فرصٍ تطوّعية مناسبة ويصلهم بالمنظمات المعنيّة.',
+          en: 'The project will assist students in identifying suitable volunteering opportunities and establishing connections with relevant volunteering organizations.',
+          ar: 'يساعد البرنامج الطلاب على اكتشاف فرصٍ تطوّعية مناسبة، وربطهم بالمنظمات التطوّعية المعنيّة.',
         },
       },
     ] satisfies TashgheelPillar[],
