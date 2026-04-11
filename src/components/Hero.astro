@@ -116,6 +116,12 @@ import { site } from '~/content/site';
     animation: marquee 60s linear infinite;
   }
 
+  @media (max-width: 640px) {
+    .animate-marquee {
+      animation-duration: 30s;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .animate-marquee {
       animation: none;
