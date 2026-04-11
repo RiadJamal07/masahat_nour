@@ -1,0 +1,48 @@
+---
+import { site } from '~/content/site';
+---
+
+<section id="laser" class="bg-cream-soft py-24 sm:py-32">
+  <div class="container-page">
+    <div class="max-w-2xl">
+      <p class="text-eyebrow mb-5">{site.laser.eyebrow.en}</p>
+      <h2 class="text-h1 text-ink">{site.laser.title.en}</h2>
+      <p class="text-lead mt-6">{site.laser.body.en}</p>
+    </div>
+
+    <dl class="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-10">
+      {
+        site.laser.stats.map((stat) => (
+          <div class="flex flex-col">
+            <dt class="font-display text-5xl leading-none text-teal sm:text-6xl">
+              {stat.number}
+            </dt>
+            <dd class="mt-3 text-xs tracking-wider text-ink-soft/70 uppercase">
+              {stat.label.en}
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+
+    <div class="mt-16 border-t border-ink/10 pt-16 lg:grid lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+      <div class="max-w-xl">
+        <h3 class="text-h2 text-ink">{site.laser.goalsTitle.en}</h3>
+        <p class="mt-6 text-base leading-relaxed text-ink-soft">
+          {site.laser.goalsBody.en}
+        </p>
+      </div>
+
+      <figure class="mt-12 lg:mt-0">
+        <div class="relative pl-10 sm:pl-16">
+          <span
+            class="absolute top-0 left-0 font-display text-7xl leading-none text-yellow select-none sm:text-8xl"
+            aria-hidden="true">&ldquo;</span>
+          <blockquote class="font-display text-3xl leading-snug text-ink sm:text-4xl">
+            {site.laser.pullQuote.en}
+          </blockquote>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>

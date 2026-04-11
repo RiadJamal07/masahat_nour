@@ -81,6 +81,53 @@
   filter: invert(0.92) hue-rotate(180deg) brightness(0.95) contrast(0.92);
 }
 
+/* ─────────────────────────────────────────────────────────────
+   Service card accordion
+   Native <details>/<summary> markup gives us free a11y: screen
+   readers announce expand/collapse and keyboard toggles on Enter.
+   A small client script intercepts the toggle so we can animate
+   the height smoothly — the native snap is jarring and the
+   interpolate-size trick doesn't help the row reflow problem.
+   Rows stretch (no align-self: start) so siblings don't leave
+   whitespace holes when one card opens.
+   ───────────────────────────────────────────────────────────── */
+.service-card__head::-webkit-details-marker {
+  display: none; /* Safari triangle */
+}
+.service-card__head {
+  list-style: none; /* Firefox marker */
+}
+
+.service-card__label-open {
+  display: none;
+}
+.service-card[open] .service-card__label-closed {
+  display: none;
+}
+.service-card[open] .service-card__label-open {
+  display: inline;
+}
+
+.service-card[open] .service-card__chevron {
+  transform: rotate(180deg);
+}
+
+.service-card__body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 380ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.service-card[open] .service-card__body {
+  /* JS pins the actual px height on open; this is a fallback
+     for no-JS users (who also get instant native toggle). */
+  max-height: 2000px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card__body {
+    transition: none;
+  }
+}
 
 /* ─────────────────────────────────────────────────────────────
    Base
